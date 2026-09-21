@@ -51,3 +51,7 @@ Makefile
 *.swp
 Thumbs.db
 .DS_Store
+
+# Frames captured from the running game, for comparing display modes.
+# Pictures of the game are game content: useful locally, never committed.
+/widescreen-comparison/
