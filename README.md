@@ -110,6 +110,47 @@ Double-click it or make a shortcut; it finds `game/` on its own. It is a
 windowed program, so diagnostics go to a log file beside the executable
 rather than to a console.
 
+Or use one of the two launchers, which set the display options for you:
+
+| | |
+| --- | --- |
+| `play-4x3.bat` | 4:3, supersampled and sharpened. **Use this one.** |
+| `play-16x9.bat` | 16:9. Experimental and unfinished — see below. |
+
+---
+
+## Display
+
+The picture always keeps its proportions. Resize the window to any shape and
+the space left over becomes black bars; nothing is ever stretched to fit.
+
+| Variable | |
+| --- | --- |
+| `RECOMP_RES_SCALE` | `1`–`8`. Render this many times larger and filter back down: supersampling. `2` is a good default and costs very little. |
+| `RECOMP_ANISO` | `1`–`16`. Sharpen textures at glancing angles. Skips the 2D layer, which wants no filtering. |
+| `RECOMP_WIDESCREEN=1` | Present at 16:9 instead of 4:3, and tell the title the console is widescreen. |
+| `RECOMP_HOR_PLUS=0.75` | Widen the camera's horizontal field of view to match. |
+
+### Why 16:9 is still experimental
+
+TimeSplitters 2 has no widescreen mode. It never asks the console whether the
+television is 16:9 — the four places it reads console settings ask for the
+language, the audio setup and the parental controls, and never the video flags
+— there is no option for it in the menus, and the word appears nowhere in the
+executable. So 16:9 here is not the game's own mode being switched on. It is
+the projection being widened from outside.
+
+The world comes out right: the horizontal field of view widens, the vertical
+stays put, so you see more to the sides rather than the same view stretched.
+
+The flat layer drawn on top does not. The HUD, menus, the logo, fades and
+full-motion video are placed in 640x480 screen coordinates by the game itself
+and never pass through the projection, so they cannot be widened the same way
+and are stretched instead. Finishing this means deciding, element by element,
+which of them belong in a centred 4:3 box and which have to span the whole
+screen — a fade or a letterbox bar must cover everything, a health meter must
+not — and that is still to do.
+
 ---
 
 ## While it is running
