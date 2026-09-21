@@ -1,4 +1,4 @@
 [submodule "xboxrecomp"]
 	path = xboxrecomp
 	url = https://github.com/DanielJVoxSmart/xboxrecomp.git
-	branch = feat/widescreen-hor-plus
+	branch = main
